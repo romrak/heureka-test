@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+authors = [
+  {name = "Roman Rakus", email = "devel@romanrakus.cz"}
+]
+maintainers = [
+  {name = "Roman Rakus", email = "devel@romanrakus.cz"}
+]
+name = "heureka"
+description = "Implementation of Heureka test for Product Catalog"
+readme = "README.md"
+version = "0.1"
+requires-python = ">= 3.13"
+
+
+dependencies = [
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest==8.3.3"
+]
+build = [
+    "build"
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+
+[tool.coverage.run]
+source = ["heureka"]
