@@ -1,0 +1,152 @@
+{
+  "offer": {
+    "id": "3b2eca31-96bd-41b6-a020-9afe45b7679f",
+    "category": "cat",
+    "name": "name",
+    "description": "desc",
+    "parameters": {
+      "same1": "value1",
+      "same2": "value2",
+      "diff_value1": "third1",
+      "diff_value2": "third2",
+      "totally_different3": 3
+    }
+  },
+  "repository_product": {
+    "ids": [
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3",
+      "9cce0642-9933-4fa5-bfa5-ae9b589ebb9f",
+      "3b2eca31-96bd-41b6-a020-9afe45b7679f"
+    ],
+    "parameters": {
+      "same1": [
+        "value1"
+      ],
+      "same2": [
+        "value2"
+      ],
+      "diff_value1": [
+        "diff_value1",
+        "dv1"
+      ],
+      "diff_value2": [
+        "diff_value2",
+        "dv2"
+      ],
+      "totally_different1": [
+        1
+      ],
+      "totally_different2": [
+        2
+      ]
+    },
+    "offers": {
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3": {
+        "parameters": {
+          "same1": "value1",
+          "same2": "value2",
+          "diff_value1": "diff_value1",
+          "diff_value2": "diff_value2",
+          "totally_different2": 2
+        },
+        "diff": {
+          "common": 3,
+          "differ": 3
+        }
+      },
+      "9cce0642-9933-4fa5-bfa5-ae9b589ebb9f": {
+        "parameters": {
+          "same1": "value1",
+          "same2": "value2",
+          "diff_value1": "dv1",
+          "diff_value2": "dv2",
+          "totally_different1": 1
+        },
+        "diff": {
+          "common": 3,
+          "differ": 3
+        }
+      }
+    }
+  },
+  "matching_list": [
+    "a998003e-36f7-4e3b-91ad-ac2914fed2b3",
+    "9cce0642-9933-4fa5-bfa5-ae9b589ebb9f",
+    "3b2eca31-96bd-41b6-a020-9afe45b7679f"
+  ],
+  "expected_product": {
+    "ids": [
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3",
+      "9cce0642-9933-4fa5-bfa5-ae9b589ebb9f",
+      "3b2eca31-96bd-41b6-a020-9afe45b7679f"
+    ],
+    "parameters": {
+      "same1": [
+        "value1"
+      ],
+      "same2": [
+        "value2"
+      ],
+      "diff_value1": [
+        "diff_value1",
+        "dv1",
+        "third1"
+      ],
+      "diff_value2": [
+        "diff_value2",
+        "dv2",
+        "third2"
+      ],
+      "totally_different1": [
+        1
+      ],
+      "totally_different2": [
+        2
+      ],
+      "totally_different3": [
+        3
+      ]
+    },
+    "offers": {
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3": {
+        "parameters": {
+          "same1": "value1",
+          "same2": "value2",
+          "diff_value1": "diff_value1",
+          "diff_value2": "diff_value2",
+          "totally_different2": 2
+        },
+        "diff": {
+          "common": 3,
+          "differ": 4
+        }
+      },
+      "9cce0642-9933-4fa5-bfa5-ae9b589ebb9f": {
+        "parameters": {
+          "same1": "value1",
+          "same2": "value2",
+          "diff_value1": "dv1",
+          "diff_value2": "dv2",
+          "totally_different1": 1
+        },
+        "diff": {
+          "common": 3,
+          "differ": 4
+        }
+      },
+      "3b2eca31-96bd-41b6-a020-9afe45b7679f": {
+        "parameters": {
+          "same1": "value1",
+          "same2": "value2",
+          "diff_value1": "third1",
+          "diff_value2": "third2",
+          "totally_different3": 3
+        },
+        "diff": {
+          "common": 3,
+          "differ": 4
+        }
+      }
+    }
+  }
+}

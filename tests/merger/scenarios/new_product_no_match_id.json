@@ -1,0 +1,34 @@
+{
+  "offer": {
+    "id": "a998003e-36f7-4e3b-91ad-ac2914fed2b3",
+    "category": "cat",
+    "name": "name",
+    "description": "desc",
+    "parameters": {
+      "param": "value"
+    }
+  },
+  "repository_product": null,
+  "matching_list": [],
+  "expected_product": {
+    "ids": [
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3"
+    ],
+    "parameters": {
+      "param": [
+        "value"
+      ]
+    },
+    "offers": {
+      "a998003e-36f7-4e3b-91ad-ac2914fed2b3": {
+        "parameters": {
+          "param": "value"
+        },
+        "diff": {
+          "common": 1,
+          "differ": 0
+        }
+      }
+    }
+  }
+}
