@@ -183,6 +183,13 @@ MongoDB is very good for that. However, it has a limitation in document size. I 
 
 I also considered ElasticSearch. That would be better in the case of searching, however that is probably not a case.
 
+# How to run
+Simply run
+
+```shell
+docker compose up --build -d
+```
+
 # Further improvements
 
 It might happen that matching IDs will change over time. 
