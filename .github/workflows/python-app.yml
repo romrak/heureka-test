@@ -43,3 +43,17 @@ jobs:
         pip install '.[tests]'
         ruff check
         pytest
+
+    - name: Build docker image
+      uses: docker/build-push-action@v6
+      with:
+        push: false
+        tags: romrak/heureka:latest
+        outputs: type=docker,dest=/tmp/heureka.tar
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: heureka-image
+        path: /tmp/heureka.tar
+
