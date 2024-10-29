@@ -190,6 +190,19 @@ Simply run
 docker compose up --build -d
 ```
 
+# How to read data
+There is no REST API endpoint yet. It would make sense to provide one.
+
+However, right now one can read the data directly from MongoDB. Here are the steps to list all data:
+
+```shell
+docker exec -it 18c9b9f2b993bdec9eb2e0f83ddd87d3f0a2821c3221a0bd445e195705efbf05 mongosh -u root -p example
+use products
+db.products.find()
+```
+
+Substitute docker container id with your mongo container id. It should print all 4 products created.
+
 # Further improvements
 
 It might happen that matching IDs will change over time. 
