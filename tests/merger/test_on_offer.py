@@ -150,11 +150,3 @@ async def test_scenarios(
     print(repository.save.call_args[0][0].model_dump_json(indent=4))
 
     repository.save.assert_called_once_with(expected_product)
-
-
-# scenare
-## prvni, ulozi co je v offer, bez diffu
-## opakovani prvni, ulozi co je v offer, bez diffu
-## druhe, mergne offers, ulozi diffy
-## treti, mergne offers, ulozi diffy
-## opakovane treti, to stejne jako normalni treti

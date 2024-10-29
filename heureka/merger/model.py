@@ -27,7 +27,7 @@ class OfferParameters(BaseModel):
     diff: Diff
 
 class Product(BaseModel):
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, extra='ignore')
 
     ids: set[UUID]
     parameters: dict[str, set[Any]]

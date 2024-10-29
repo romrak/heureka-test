@@ -1,9 +1,11 @@
+import logging
 from typing import Any
 from uuid import UUID
 
 from heureka.merger.model import Offer, Product, OfferParameters, Diff
 from heureka.merger.ports import Repository, ErrorReporter, RepositoryException, Matching, MatchingException
 
+log = logging.getLogger(__name__)
 
 class Merger:
     def __init__(self, *, repository: Repository, matching: Matching, reporter: ErrorReporter):
@@ -47,7 +49,7 @@ class Merger:
     def _merge_product(self, offer: Offer, product: Product, matching: set[UUID]) -> Product:
         merged_parameters = self._merge_parameters(offer, product)
         return Product(
-            ids=matching,
+            ids=matching or {offer.id},
             parameters=merged_parameters,
             offers=self._update_offers(offer, product, merged_parameters)
         )
