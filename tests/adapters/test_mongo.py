@@ -7,24 +7,20 @@ from pymongo import MongoClient
 from heureka.adapters.mongo import MongoAdapter, MongoConfig
 from heureka.merger.model import OfferParameters, Diff, Product, Offer
 
-
-@pytest.fixture
-def collection() -> str:
-    return "test-collection"
+products = "products"
 
 @pytest.fixture
 def database() -> str:
     return "test-db"
 
 @pytest.fixture
-def adapter(collection: str, database: str) -> MongoAdapter:
+def adapter(database: str) -> MongoAdapter:
     return MongoAdapter(
         config=MongoConfig(
             host="localhost",
             port=27017,
             user="root",
             password="example",
-            collection=collection,
             database=database
         )
     )
@@ -39,9 +35,9 @@ def client() -> MongoClient:
     )
 
 @pytest.mark.asyncio
-async def test_save(client: MongoClient, adapter: MongoAdapter, collection: str, database: str) -> None:
-    client[database][collection].delete_many({})
-    cursor = client[database][collection].find()
+async def test_save(client: MongoClient, adapter: MongoAdapter, database: str) -> None:
+    client[database][products].delete_many({})
+    cursor = client[database][products].find()
     assert len(cursor.to_list()) == 0
 
     offer_id = uuid.uuid4()
@@ -58,7 +54,7 @@ async def test_save(client: MongoClient, adapter: MongoAdapter, collection: str,
 
     await adapter.save(product)
 
-    cursor = client[database][collection].find()
+    cursor = client[database][products].find()
     saved = cursor.to_list()
     assert len(saved) == 1
 
@@ -68,9 +64,9 @@ async def test_save(client: MongoClient, adapter: MongoAdapter, collection: str,
 
 
 @pytest.mark.asyncio
-async def test_load_by_offer(client: MongoClient, adapter: MongoAdapter, collection: str, database: str) -> None:
-    client[database][collection].delete_many({})
-    cursor = client[database][collection].find()
+async def test_load_by_offer(client: MongoClient, adapter: MongoAdapter, database: str) -> None:
+    client[database][products].delete_many({})
+    cursor = client[database][products].find()
     assert len(cursor.to_list()) == 0
 
     offer_id = uuid.uuid4()
@@ -85,8 +81,8 @@ async def test_load_by_offer(client: MongoClient, adapter: MongoAdapter, collect
         }
     )
 
-    client[database][collection].insert_one(json.loads(product.model_dump_json()))
-    cursor = client[database][collection].find()
+    client[database][products].insert_one(json.loads(product.model_dump_json()))
+    cursor = client[database][products].find()
     assert len(cursor.to_list()) == 1
 
     offer = Offer(

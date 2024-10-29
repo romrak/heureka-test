@@ -8,13 +8,8 @@ services:
     image: heurekaoc/testday-producer:latest
     depends_on:
       - rabbitmq
-    environment:
-      RABBITMQ_HOST: "rabbitmq"
-      RABBITMQ_PORT: "5672"
-      RABBITMQ_VIRTUAL_HOST: "/"
-      RABBITMQ_LOGIN: "guest"
-      RABBITMQ_PASSWORD: "guest"
-      RABBITMQ_EXCHANGE_NAME: "amq.topic"
+    env_file:
+      - .env
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -28,5 +23,11 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+
+  merger:
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
